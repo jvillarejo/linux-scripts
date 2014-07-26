@@ -5,7 +5,7 @@ RESOLUTION="1920x1080"
 OFFSET="1360x0"
 
 function HDMIConnected { 
-  xrandr | grep $DEV | grep connected 
+  ! xrandr | grep $DEV | grep disconnected
 }
 
 function EnableHDMI { 
@@ -18,7 +18,9 @@ function DisableHDMI {
 
 if HDMIConnected 
 then
+  echo "enabling HDMI" 
   EnableHDMI
 else 
+  echo "disabling HDMI"
   DisableHDMI
 fi
