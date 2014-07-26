@@ -1,0 +1,24 @@
+#!/bin/bash
+
+DEV=HDMI1
+RESOLUTION="1920x1080"
+OFFSET="1360x0"
+
+function HDMIConnected { 
+  xrandr | grep $DEV | grep connected 
+}
+
+function EnableHDMI { 
+ xrandr --output $DEV --mode $RESOLUTION --pos $OFFSET
+}
+
+function DisableHDMI { 
+ xrandr --output $DEV --off
+}
+
+if HDMIConnected 
+then
+  EnableHDMI
+else 
+  DisableHDMI
+fi
