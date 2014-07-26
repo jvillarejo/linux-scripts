@@ -14,10 +14,12 @@ function HDMIConnected {
 
 function EnableHDMI { 
  xrandr --output $DEV --mode $RESOLUTION --pos $OFFSET
+ pactl set-card-profile 0 output:hdmi-stereo
 }
 
 function DisableHDMI { 
  xrandr --output $DEV --off
+ pactl set-card-profile 0 output:analog-stereo
 }
 
 if HDMIConnected 
