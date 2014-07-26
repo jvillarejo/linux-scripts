@@ -16,6 +16,7 @@ function DisableHDMI {
  xrandr --output $DEV --off
 }
 
+echo "cuban pete" >> "/home/pollo/hot.log"
 if HDMIConnected 
 then
   echo "enabling HDMI" 
