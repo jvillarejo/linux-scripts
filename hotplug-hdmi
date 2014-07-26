@@ -1,4 +1,8 @@
+# move this to /usr/bin
 #!/bin/bash
+
+export DISPLAY=:0
+export XAUTHORITY=/home/pollo/.Xauthority
 
 DEV=HDMI1
 RESOLUTION="1920x1080"
@@ -16,12 +20,9 @@ function DisableHDMI {
  xrandr --output $DEV --off
 }
 
-echo "cuban pete" >> "/home/pollo/hot.log"
 if HDMIConnected 
 then
-  echo "enabling HDMI" 
   EnableHDMI
 else 
-  echo "disabling HDMI"
   DisableHDMI
 fi
